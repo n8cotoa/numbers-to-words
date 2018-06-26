@@ -6,7 +6,6 @@ def numbers_to_words(number)
   word_output = ""
   big_number_array = number.split(",")
   big_length = big_number_array.length
-binding.pry
   big_number_array.each do |block|
     num_array = block.to_s.split("")
     num_array_length = num_array.length

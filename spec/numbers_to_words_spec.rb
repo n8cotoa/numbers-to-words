@@ -21,4 +21,7 @@ describe('#numbers_to_words') do
   it('accept a number between 100 and 999 which has a teen in it and converts it to word') do
     expect(numbers_to_words("13,579,246,312")).to(eq("thirteen billion five hundred seventy nine million two hundred fourty six thousand three hundred twelve"))
   end
+  it('accept a number between 100 and 999 which has a teen in it and converts it to word') do
+    expect(numbers_to_words("12,413,579,246,312")).to(eq("twelve trillion four hundred thirteen billion five hundred seventy nine million two hundred fourty six thousand three hundred twelve"))
+  end
 end
