@@ -6,6 +6,7 @@ def numbers_to_words(number)
   word_output = ""
   big_number_array = number.split(",")
   big_length = big_number_array.length
+binding.pry
   big_number_array.each do |block|
     num_array = block.to_s.split("")
     num_array_length = num_array.length
@@ -19,26 +20,26 @@ def numbers_to_words(number)
     if big_length >= 2
       if num_array[1] == "1"
         if num_array[0] != 0
-          word_output += (ones_value[num_array[0].to_i] + " hundred ")
-          word_output += (teens_value[num_array[2].to_i] + " " + steps[-big_length] + " ")
+          word_output += (ones_value.fetch(num_array[0].to_i) + " hundred ")
+          word_output += (teens_value.fetch(num_array[2].to_i) + " " + steps[-big_length] + " ")
         else
-          word_output += (teens_value[num_array[2].to_i] + " " + steps[-big_length] + " ")
+          word_output += (teens_value.fetch(num_array[2].to_i) + " " + steps[-big_length] + " ")
         end
       # no teens case
       else
         if num_array[0] != 0
-          word_output += (ones_value[num_array[0].to_i] + " hundred ")
+          word_output += (ones_value.fetch(num_array[0].to_i) + " hundred ")
           unless num_array[1] == 0
-            word_output += (tens_value[num_array[1].to_i] + " ")
+            word_output += (tens_value.fetch(num_array[1].to_i) + " ")
           end
           unless num_array[2] == 0
-            word_output += (ones_value[num_array[2].to_i] + " ")
+            word_output += (ones_value.fetch(num_array[2].to_i) + " ")
           end
           word_output += steps[-big_length] + " "
         elsif num_array[1] != 0
-          word_output += (tens_value[num_array[1].to_i] + " ")
+          word_output += (tens_value.fetch(num_array[1].to_i) + " ")
           unless num_array[2] == 0
-            word_output += (ones_value[num_array[2].to_i] + " ")
+            word_output += (ones_value.fetch(num_array[2].to_i) + " ")
           end
           word_output += steps[-big_length] + " "
         end
@@ -46,18 +47,18 @@ def numbers_to_words(number)
     else
       if num_array[1] == "1"
         if num_array[0] != 0
-          word_output += (ones_value[num_array[0].to_i] + " hundred ")
+          word_output += (ones_value.fetch(num_array[0].to_i) + " hundred ")
         end
-        word_output += (teens_value[num_array[2].to_i])
+        word_output += (teens_value.fetch(num_array[2].to_i))
       # no teens case
       else
         if num_array[0] != 0
-          word_output += (ones_value[num_array[0].to_i] + " hundred ")
+          word_output += (ones_value.fetch(num_array[0].to_i) + " hundred ")
         end
         if num_array[1] != 0
-        word_output += (tens_value[num_array[1].to_i] + " ")
+        word_output += (tens_value.fetch(num_array[1].to_i) + " ")
         end
-        word_output += (ones_value[num_array[2].to_i])
+        word_output += (ones_value.fetch(num_array[2].to_i))
       end
     end
     big_length -= 1
